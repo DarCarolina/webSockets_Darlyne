@@ -50,3 +50,9 @@ def ui_update():
         #led
         ui.label(f'LED: {data["led_status"]}').classes('text-h3')
         ui.button('Cambiar estado del LED', on_click=toggle_led).props ('elevated').classes('m-4')
+@ui.page('/')
+def index():
+    ui.label('Dashboard ESP32').classes('text-h2 m-4')
+    ui_update() #llama a la función para mostrar la interfaz
+ui.run(host='0.0.0.0', port=8080, title='ESP32 Dashboard') #ejecuta el servidor web en todas las interfaces de red, puerto 8080
+    
